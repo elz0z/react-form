@@ -1,0 +1,47 @@
+body,
+div,
+p,
+h1,
+h2,
+h3,
+li,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  color: white;
+}
+
+
+.App {
+  background-color: #0F1035;
+  width: 100vw;
+  height: 100vmax;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+h1 {
+  padding: 10px;
+  font-size: 3rem;
+  
+}
+
+hr {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-container {
+  width: 75%;
+  background-color: #365486;
+  border-radius: 6px;
+  padding: 2.5rem;
+}
