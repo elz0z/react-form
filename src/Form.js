@@ -133,7 +133,7 @@ function Form() {
                         </li>
                     </ul>
 
-                    <Alert show={showModal} />
+                    <Alert show={showModal} msg={"Submit Has Been Success"} />
                 </form>
             </div>
         </div>

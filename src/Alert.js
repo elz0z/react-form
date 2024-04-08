@@ -1,9 +1,9 @@
 import "./alert.css";
-function Alert({ show }) {
+function Alert({ show, msg }) {
     if (show) {
         return (
             <div className="alert">
-                <p style={{ color: "green" }}>Submit has been success</p>
+                <p style={{ color: "green" }}>{msg}</p>
             </div>
         );
     } else {
