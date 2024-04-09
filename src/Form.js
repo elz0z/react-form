@@ -11,6 +11,8 @@ function Form() {
     });
     const [showModal, setShowModal] = useState(false);
 
+    const [errorMsg, setErrorMsg] = useState(null);
+
     function handleNameInput(event) {
         setPerson({
             ...person,
@@ -35,6 +37,10 @@ function Form() {
     function handleSalaryInput(event) {
         setPerson({ ...person, salary: event.target.value });
     }
+    /* 
+** if we want to ignore alert and modal msg just dlt this comment and replace false in line 143 by isSubmitDisabled
+** then remove all conditions in handleSubmit function 
+
 
     const isSubmitDisabled =
         person.name.trim() === "" ||
@@ -42,9 +48,18 @@ function Form() {
         person.phone.length < 10 ||
         person.age < 18 ||
         person.age > 100;
-
+        
+*/
     function handleSubmit(event) {
+        setErrorMsg(null);
         event.preventDefault();
+        if (person.name.trim() == "") {
+            setErrorMsg("Missing Name");
+        } else if (person.phone.length < 10 || person.phone.length > 15) {
+            setErrorMsg("Phone Number Is Not Allowed");
+        } else if (person.age < 18 || person.age > 100) {
+            setErrorMsg("Age Is Not Allowed");
+        }
         setShowModal(true);
     }
 
@@ -98,7 +113,7 @@ function Form() {
                             />
                         </li>
 
-                        <label for="isEmplyee">Are you Emplyee? </label>
+                        <label for="isEmplyee">Are You Emplyee ? </label>
                         <li>
                             <input
                                 onClick={handleWorkInput}
@@ -128,15 +143,16 @@ function Form() {
                                 onClick={handleSubmit}
                                 type="submit"
                                 value="Submit"
-                                disabled={isSubmitDisabled}
+                                disabled={false}
                             />
                         </li>
                     </ul>
 
-                    <Alert show={showModal} msg={"Submit Has Been Success"} />
+                    <Alert show={showModal} errorMsg={errorMsg} />
                 </form>
             </div>
         </div>
     );
 }
+
 export default Form;

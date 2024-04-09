@@ -1,9 +1,13 @@
 import "./alert.css";
-function Alert({ show, msg }) {
+function Alert({ show, errorMsg = null }) {
     if (show) {
         return (
             <div className="alert">
-                <p style={{ color: "green" }}>{msg}</p>
+                <p style={{ color: errorMsg ? "red" : "green" }}>
+                    {errorMsg
+                        ? errorMsg
+                        : "The Form Has Been Submitted successfully"}
+                </p>
             </div>
         );
     } else {
